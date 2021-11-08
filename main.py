@@ -99,9 +99,14 @@ def welcome(name):
     #print("Bank Nifty running @",banknifty[0],"on", banknifty[-1])
     #now = datetime.datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%a--%I:%M:%p||%d-%b-%Y")
     while datetime.datetime.now(pytz.timezone('Asia/Kolkata')).time() <= datetime.time(15, 30):
+        now = datetime.datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%I:%M:%p")
         price=trade.hedge_12_calculation(banknifty[0])
+
         #print(price)
-        print("\nBank Nifty running @",banknifty[0],"DATE", banknifty[-1],"\nPE->",price[0] , " and CE->",price[1],"\t Sum is ",round(sum(price),1),"\n...")
+        print("\nBank Nifty running @",banknifty[0],"DATE", banknifty[-1],
+              "\n Time", now,
+              "\tPE->",price[0] , " and CE->",price[1],
+              "\t Sum is ",round(sum(price),1),"\n...")
         sleeptime.sleep(5)
 
 
