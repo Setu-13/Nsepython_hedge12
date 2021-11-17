@@ -108,6 +108,9 @@ def welcome(name):
 
 
     price_data = []
+    while datetime.datetime.now(pytz.timezone('Asia/Kolkata')).time() >= datetime.time(09, 15):
+        print("waiting for market to open\n")
+
     while datetime.datetime.now(pytz.timezone('Asia/Kolkata')).time() <= datetime.time(15, 30):
         now = datetime.datetime.now(pytz.timezone('Asia/Kolkata')).strftime("%I:%M:%p")
         price = trade.hedge_12_calculation(spot_price)
